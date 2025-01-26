@@ -6,7 +6,7 @@ const QuestionCard = () => {
   return (
     <View style={styles.QuestionCard}>
       <Text style={styles.Question}>What is React Native</Text>
-      <View style={{gap: 5,}}>
+      <View style={{gap: 10,}}>
         <Option />
         <Option />
         <Option />
@@ -20,11 +20,12 @@ export default QuestionCard;
 
 const styles = StyleSheet.create({
   QuestionCard: {
-    backgroundColor: "white",
+    backgroundColor: 'white',
+    borderRadius: 20,
     padding: 20,
     paddingVertical: 40,
-    borderRadius: 20,
-
+    gap: 20,
+    
     //shadows
     shadowColor: "#000",
     shadowOffset: {
@@ -39,5 +40,6 @@ const styles = StyleSheet.create({
   Question: {
     fontSize: 24,
     fontWeight: "500",
+    lineHeight: 30,
   },
 });
