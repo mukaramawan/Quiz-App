@@ -1,10 +1,17 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
+import Option from "./Option";
 
 const QuestionCard = () => {
   return (
     <View style={styles.QuestionCard}>
       <Text style={styles.Question}>What is React Native</Text>
+      <View style={{gap: 5,}}>
+        <Option />
+        <Option />
+        <Option />
+        <Option />
+      </View>
     </View>
   );
 };
