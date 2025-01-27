@@ -1,5 +1,5 @@
 export type question = {
-    title: string;
-    options: string[];
-    correctAnswer?: string;
+  title: string;
+  options: string[];
+  correctAnswer?: string;
 };
