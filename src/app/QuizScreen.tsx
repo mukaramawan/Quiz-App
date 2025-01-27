@@ -3,8 +3,10 @@ import React from "react";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 
 import QuestionCard from "../components/QuestionCard";
+import questions from "../assets/questions";
 
 function QuizScreen() {
+  const question = questions[0];
   return (
     <SafeAreaView style={styles.screen}>
       <View style={styles.container}>
@@ -13,7 +15,7 @@ function QuizScreen() {
         </View>
 
         <View>
-          <QuestionCard />
+          <QuestionCard Question={question} />
           <Text style={styles.Qtime}>20 sec</Text>
         </View>
 

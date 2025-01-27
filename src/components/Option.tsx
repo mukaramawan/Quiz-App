@@ -1,21 +1,36 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, Pressable } from "react-native";
+import React from "react";
 
-const Option = () => {
+type option = {
+  option: string;
+  isSelected: boolean;
+  onPress: () => void;
+};
+
+const Option = ({ option, isSelected, onPress }: option) => {
   return (
-    <View style={styles.container}>
-      <Text>This an Option</Text>
-    </View>
-  )
-}
+    <Pressable
+      style={[
+        styles.container,
+        isSelected && {
+          backgroundColor: "#e1f396",
+          borderColor: "#e1f396",
+        },
+      ]}
+      onPress={onPress}
+    >
+      <Text>{option}</Text>
+    </Pressable>
+  );
+};
 
-export default Option
+export default Option;
 
 const styles = StyleSheet.create({
-    container: {
-        borderWidth: 1,
-        padding: 20,
-        borderColor: 'lightgrey',
-        borderRadius: 100,
-    },
-})
+  container: {
+    borderWidth: 1,
+    padding: 20,
+    borderColor: "lightgrey",
+    borderRadius: 100,
+  },
+});

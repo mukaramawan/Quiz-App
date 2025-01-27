@@ -1,18 +1,16 @@
-import React from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet,} from 'react-native';
+import React from "react";
+import { StatusBar } from "expo-status-bar";
+import { StyleSheet } from "react-native";
 
-import QuizScreen from './src/app/QuizScreen';
+import QuizScreen from "./src/app/QuizScreen";
 
 export default function App() {
   return (
     <>
-      <QuizScreen/>
+      <QuizScreen />
       <StatusBar style="auto" />
     </>
   );
 }
 
-const styles = StyleSheet.create({
-
-});
+const styles = StyleSheet.create({});
