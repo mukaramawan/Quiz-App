@@ -4,9 +4,10 @@ import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 
 import QuestionCard from "../components/QuestionCard";
 import questions from "../assets/questions";
+import Card from "../components/Card";
 
 function QuizScreen() {
-  const question = questions[0];
+  const question = questions[5];
   return (
     <SafeAreaView style={styles.screen}>
       <View style={styles.container}>
@@ -14,10 +15,16 @@ function QuizScreen() {
           <Text style={styles.Qnumber}>Question 1/5</Text>
         </View>
 
-        <View>
-          <QuestionCard Question={question} />
-          <Text style={styles.Qtime}>20 sec</Text>
-        </View>
+        {question ? (
+          <View>
+            <QuestionCard Question={question} />
+            <Text style={styles.Qtime}>20 sec</Text>
+          </View>
+        ) : (
+          <Card title="Very Good!">
+            <Text>Correct Answers: 3/5</Text>
+          </Card>
+        )}
 
         <Pressable
           style={styles.btn}
