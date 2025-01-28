@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import Option from "./Option";
 import Card from "./Card";
 import { question } from "../assets/Types";
@@ -9,23 +9,23 @@ type QuestionCard = {
 };
 
 export default function QuestionCard({ Question }: QuestionCard) {
-    const selectedOption = Question.options[0];
-  
-    return (
-      <Card title={Question.title}>
-        <View style={{ gap: 10 }}>
-          {Question.options.map((option) => (
-            <Option
-              key={option}
-              option={option}
-              isSelected={selectedOption === option}
-              onPress={() => console.warn('Option pressed: ', option)}
-            />
-          ))}
-        </View>
-      </Card>
-    );
-  }
+  const [selectedOption, setSelectedOption] = useState(Question.options[0]);
+
+  return (
+    <Card title={Question.title}>
+      <View style={{ gap: 10 }}>
+        {Question.options.map((option) => (
+          <Option
+            key={option}
+            option={option}
+            isSelected={selectedOption === option}
+            onPress={() => setSelectedOption(option)}
+          />
+        ))}
+      </View>
+    </Card>
+  );
+}
 
 const styles = StyleSheet.create({
   QuestionCard: {

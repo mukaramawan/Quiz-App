@@ -1,6 +1,6 @@
-import { View, Text, StyleSheet } from 'react-native';
-import React from 'react';
-import { PropsWithChildren } from 'react';
+import { View, Text, StyleSheet } from "react-native";
+import React from "react";
+import { PropsWithChildren } from "react";
 
 type Card = {
   title: string;
@@ -18,14 +18,14 @@ export default function Card({ title, children }: PropsWithChildren<Card>) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'white',
+    backgroundColor: "white",
     padding: 20,
     paddingVertical: 40,
     borderRadius: 20,
     gap: 20,
 
     // shadows
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOffset: {
       width: 0,
       height: 2,
@@ -37,6 +37,6 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
-    fontWeight: '500',
+    fontWeight: "500",
   },
 });

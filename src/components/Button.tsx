@@ -11,9 +11,8 @@ type Button = {
   title: string;
   rightIcon?: React.ReactNode;
 } & PressableProps;
-// & ComponentProps<typeof Pressable>;
 
-const Button = ({ title, rightIcon, ...pressableProps}: Button) => {
+const Button = ({ title, rightIcon, ...pressableProps }: Button) => {
   return (
     <Pressable style={styles.btn} {...pressableProps}>
       <Text style={styles.btnText}>{title}</Text>
