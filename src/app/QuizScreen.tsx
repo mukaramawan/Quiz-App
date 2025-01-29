@@ -1,26 +1,24 @@
 import { SafeAreaView, StyleSheet, Text, View } from "react-native";
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 
 import QuestionCard from "../components/QuestionCard";
 import Card from "../components/Card";
 import Button from "../components/Button";
 import { useQuizContext } from "../providers/QuizProvider";
+import { useTimer } from "../hooks/useTimer";
 
 function QuizScreen() {
   const { question, questionIndex, onNext, score, totalQuestions, bestScore } =
     useQuizContext();
 
-  const [time, setTime] = useState(20);
+  const { time, startTimer, clearTimer } = useTimer(10);
 
   useEffect(() => {
-    setTime(20);
-    const interval = setInterval(() => {
-      setTime((t) => t - 1);
-    }, 1000);
+    startTimer();
 
     return () => {
-      clearInterval(interval);
+      clearTimer();
     };
   }, [question]);
 
