@@ -1,5 +1,5 @@
 import { SafeAreaView, StyleSheet, Text, View } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 
 import QuestionCard from "../components/QuestionCard";
@@ -8,8 +8,27 @@ import Button from "../components/Button";
 import { useQuizContext } from "../providers/QuizProvider";
 
 function QuizScreen() {
-  const { question, questionIndex, onNext, score, totalQuestions } =
+  const { question, questionIndex, onNext, score, totalQuestions, bestScore } =
     useQuizContext();
+
+  const [time, setTime] = useState(20);
+
+  useEffect(() => {
+    setTime(20);
+    const interval = setInterval(() => {
+      setTime((t) => t - 1);
+    }, 1000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [question]);
+
+  useEffect(() => {
+    if (time <= 0) {
+      onNext();
+    }
+  }, [time]);
 
   return (
     <SafeAreaView style={styles.screen}>
@@ -23,12 +42,15 @@ function QuizScreen() {
         {question ? (
           <View>
             <QuestionCard Question={question} />
-            <Text style={styles.Qtime}>20 sec</Text>
+            <Text style={styles.Qtime}>{time} sec</Text>
           </View>
         ) : (
           <Card title="Very Good!">
             <Text>
               Correct Answers: {score}/{totalQuestions}
+            </Text>
+            <Text>
+              Best Score: {bestScore}/{totalQuestions}
             </Text>
           </Card>
         )}
