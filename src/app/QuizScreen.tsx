@@ -1,5 +1,5 @@
 import { SafeAreaView, StyleSheet, Text, View } from "react-native";
-import React, { useEffect} from "react";
+import React, { useEffect } from "react";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 
 import QuestionCard from "../components/QuestionCard";
@@ -7,6 +7,7 @@ import Card from "../components/Card";
 import Button from "../components/Button";
 import { useQuizContext } from "../providers/QuizProvider";
 import { useTimer } from "../hooks/useTimer";
+import LottieView from "lottie-react-native";
 
 function QuizScreen() {
   const { question, questionIndex, onNext, score, totalQuestions, bestScore } =
@@ -43,14 +44,21 @@ function QuizScreen() {
             <Text style={styles.Qtime}>{time} sec</Text>
           </View>
         ) : (
-          <Card title="Very Good!">
-            <Text>
-              Correct Answers: {score}/{totalQuestions}
-            </Text>
-            <Text>
-              Best Score: {bestScore}/{totalQuestions}
-            </Text>
-          </Card>
+          <>
+            <LottieView
+              style={StyleSheet.absoluteFill}
+              autoPlay
+              source={require("../assets/party.json")}
+            />
+            <Card title="Very Good!">
+              <Text>
+                Correct Answers: {score}/{totalQuestions}
+              </Text>
+              <Text>
+                Best Score: {bestScore}/{totalQuestions}
+              </Text>
+            </Card>
+          </>
         )}
 
         <Button
