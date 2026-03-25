@@ -1,6 +1,7 @@
-import { SafeAreaView, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import React, { useEffect } from "react";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import QuestionCard from "../components/QuestionCard";
 import Card from "../components/Card";
